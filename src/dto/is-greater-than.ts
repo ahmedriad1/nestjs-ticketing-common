@@ -7,7 +7,7 @@ import {
 export function IsGreaterThan(minValue: number, validationOptions?: ValidationOptions) {
   return function (object: Object, propertyName: string) {
     registerDecorator({
-      name: 'isLongerThan',
+      name: 'IsGreaterThan',
       target: object.constructor,
       propertyName: propertyName,
       constraints: [minValue],
@@ -17,7 +17,8 @@ export function IsGreaterThan(minValue: number, validationOptions?: ValidationOp
           `${args.property} must be greater than ${args.constraints[0]}`,
         validate(value: any, args: ValidationArguments) {
           const [min] = args.constraints;
-          return typeof value === 'number' && value > min;
+          if (typeof value === 'number') return value > min;
+          if (typeof value === 'string') return parseFloat(value.replace(',', '.')) > min;
         },
       },
     });
