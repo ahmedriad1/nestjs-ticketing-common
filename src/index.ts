@@ -3,11 +3,20 @@ import { RegisterDto } from './dto/register.dto';
 
 import { ClientProxy } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
+import { CreateTicketDto } from './dto/create-ticket.dto';
+import { UpdateTicketDto } from './dto/update-ticket.dto';
 
 export type User = {
   id: string;
   name: string;
   email: string;
+};
+
+export type Ticket = {
+  id: string;
+  title: string;
+  price: number;
+  userId: string;
 };
 
 interface IAuthenticatedResponse {
@@ -25,6 +34,13 @@ declare abstract class AuthClientProxy extends ClientProxy {
   send(pattern: 'validate_token', data: string): Observable<User>;
 }
 
-export { LoginDto, RegisterDto };
+declare abstract class TicketClientProxy extends ClientProxy {
+  send(pattern: 'create_ticket', data: CreateTicketDto): Observable<Ticket>;
+
+  send(pattern: 'update_ticket', data: UpdateTicketDto): Observable<Ticket>;
+}
+
+export { LoginDto, RegisterDto, CreateTicketDto, UpdateTicketDto };
+export { AuthClientProxy, TicketClientProxy };
 export * from './exceptions/exception-filter';
-export { AuthClientProxy };
+export * from './pipes/microservice-validation.pipe';
