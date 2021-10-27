@@ -13,6 +13,8 @@ export function IsGreaterThan(minValue: number, validationOptions?: ValidationOp
       constraints: [minValue],
       options: validationOptions,
       validator: {
+        defaultMessage: (args: ValidationArguments) =>
+          `${args.property} must be greater than ${args.constraints[0]}`,
         validate(value: any, args: ValidationArguments) {
           const [min] = args.constraints;
           return typeof value === 'number' && value > min;

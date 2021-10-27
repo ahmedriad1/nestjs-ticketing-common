@@ -3,7 +3,6 @@ import {
   ValidationPipe,
   ValidationPipeOptions,
 } from '@nestjs/common';
-import { RpcException } from '@nestjs/microservices';
 
 export class MicroserviceValidationPipe extends ValidationPipe {
   constructor(options: ValidationPipeOptions = {}) {
