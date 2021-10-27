@@ -11,3 +11,9 @@ export class UpdateTicketDto {
   @IsGreaterThan(0)
   price: number;
 }
+
+export class UpdateTicketWithIdDto extends UpdateTicketDto {
+  @IsString()
+  @IsNotEmpty()
+  id: string;
+}
