@@ -1,5 +1,5 @@
-import { IsDecimal, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { IsGreaterThan } from './is-greater-than';
+import { IsDecimal, IsOptional, IsString, IsNotEmpty } from 'class-validator';
+import { IsGreaterThan, IsObjectId } from '../../validators';
 
 export class UpdateTicketDto {
   @IsOptional()
@@ -13,7 +13,7 @@ export class UpdateTicketDto {
 }
 
 export class UpdateTicketWithIdDto extends UpdateTicketDto {
-  @IsString()
   @IsNotEmpty()
+  @IsObjectId()
   id: string;
 }

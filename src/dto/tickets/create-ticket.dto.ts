@@ -1,5 +1,6 @@
 import { IsDecimal, IsNotEmpty, IsString } from 'class-validator';
-import { IsGreaterThan } from './is-greater-than';
+import { IsGreaterThan } from '../../validators';
+import { IsObjectId } from '../../validators';
 
 export class CreateTicketDto {
   @IsNotEmpty()
@@ -11,6 +12,6 @@ export class CreateTicketDto {
   price: number;
 
   @IsNotEmpty()
-  @IsString()
+  @IsObjectId()
   ownerId: string;
 }

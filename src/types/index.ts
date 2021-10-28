@@ -1,5 +1,7 @@
-export { AuthClientProxy, AuthenticatedResponse } from './auth-client-proxy';
-export { User } from './user';
-export { Ticket } from './ticket';
-export { TicketClientProxy } from './ticket-client-proxy';
+export * from './auth-client-proxy';
+export * from './user';
+export * from './ticket';
+export * from './order';
+export * from './ticket-client-proxy';
+export * from './order-client-proxy';
 export * from './events';

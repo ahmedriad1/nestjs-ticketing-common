@@ -1,3 +1,4 @@
+import { Order } from './order';
 import { Ticket } from './ticket';
 
 export enum Subjects {
@@ -11,6 +12,6 @@ export interface TicketCreatedEvent extends Ticket {}
 
 export interface TicketUpdatedEvent extends Ticket {}
 
-export interface OrderCreatedEvent {}
+export interface OrderCreatedEvent extends Order {}
 
-export interface OrderUpdatedEvent {}
+export interface OrderUpdatedEvent extends Order {}
