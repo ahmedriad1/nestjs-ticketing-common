@@ -5,7 +5,7 @@ export enum Subjects {
   TicketCreated = 'ticket:created',
   TicketUpdated = 'ticket:updated',
   OrderCreated = 'order:created',
-  OrderUpdated = 'order:updated',
+  OrderCancelled = 'order:cancelled',
 }
 
 export interface TicketCreatedEvent extends Ticket {}
@@ -14,4 +14,4 @@ export interface TicketUpdatedEvent extends Ticket {}
 
 export interface OrderCreatedEvent extends Order {}
 
-export interface OrderUpdatedEvent extends Order {}
+export interface OrderCancelledEvent extends Order {}
