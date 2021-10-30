@@ -3,4 +3,5 @@ export type Ticket = {
   title: string;
   price: number;
   ownerId: string;
+  version: number;
 };
