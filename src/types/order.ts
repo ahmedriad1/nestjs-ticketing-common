@@ -12,6 +12,7 @@ type BaseOrder = {
   userId: string;
   status: OrderStatus;
   expiresAt: Date | string;
+  version: number;
 };
 
 export type Order = BaseOrder & { ticket: string };
