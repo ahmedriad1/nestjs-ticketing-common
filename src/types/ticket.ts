@@ -4,4 +4,5 @@ export type Ticket = {
   price: number;
   ownerId: string;
   version: number;
+  orderId?: string;
 };
